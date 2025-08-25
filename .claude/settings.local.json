@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npx create-expo-app:*)",
+      "Bash(pnpm install:*)",
+      "Bash(npm install:*)",
+      "Bash(pnpm add:*)",
+      "Bash(systemctl:*)",
+      "Bash(sudo apt:*)",
+      "Bash(dpkg:*)",
+      "Bash(sudo -u postgres:*)",
+      "Bash(psql:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(npx prisma:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run mobile:dev:*)",
+      "Bash(npx expo:*)",
+      "Bash(expo start:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(find:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

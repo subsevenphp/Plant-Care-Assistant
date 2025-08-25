@@ -1,0 +1,45 @@
+{
+  "name": "plant-care-assistant",
+  "version": "1.0.0",
+  "description": "A comprehensive plant care assistant with mobile app and backend API",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r --parallel dev",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "typecheck": "pnpm -r typecheck",
+    "mobile:dev": "pnpm --filter @plant-care/mobile dev",
+    "server:dev": "pnpm --filter @plant-care/server dev",
+    "mobile:build": "pnpm --filter @plant-care/mobile build",
+    "server:build": "pnpm --filter @plant-care/server build",
+    "mobile:start": "pnpm --filter @plant-care/mobile start",
+    "server:start": "pnpm --filter @plant-care/server start"
+  },
+  "keywords": [
+    "plant-care",
+    "mobile-app",
+    "react-native",
+    "expo",
+    "nodejs",
+    "express",
+    "typescript",
+    "monorepo"
+  ],
+  "author": "Plant Care Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.10.0"
+}

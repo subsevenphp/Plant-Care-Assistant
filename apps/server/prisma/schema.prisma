@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                    String   @id @default(cuid())
+  email                 String   @unique
+  password              String
+  name                  String?
+  refreshToken          String?  // For JWT refresh token storage
+  pushToken             String?  // Expo push notification token
+  pushTokenUpdatedAt    DateTime? // When the push token was last updated
+  notificationsEnabled  Boolean  @default(true) // User preference for notifications
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  
+  // Relations
+  plants                Plant[]
+  
+  @@map("users")
+}
+
+model Plant {
+  id                String    @id @default(cuid())
+  name              String
+  species           String?
+  notes             String?
+  imageUrl          String?
+  lastWatered       DateTime?
+  wateringFrequency Int       // watering frequency in days
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  
+  // Foreign key
+  userId            String
+  
+  // Relations
+  user              User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reminders         Reminder[]
+  
+  @@map("plants")
+  @@index([userId])
+}
+
+model Reminder {
+  id          String    @id @default(cuid())
+  type        String    // e.g., 'WATER', 'FERTILIZE'
+  scheduledAt DateTime
+  isCompleted Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  // Foreign key
+  plantId     String
+  
+  // Relations
+  plant       Plant     @relation(fields: [plantId], references: [id], onDelete: Cascade)
+  
+  @@map("reminders")
+  @@index([plantId])
+  @@index([scheduledAt])
+  @@index([type])
+}

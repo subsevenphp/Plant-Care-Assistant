@@ -1,0 +1,35 @@
+{
+  "name": "@plant-care/shared-types",
+  "version": "1.0.0",
+  "description": "Shared TypeScript types for Plant Care Assistant",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "dev": "tsc --watch",
+    "clean": "rimraf dist",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "typescript",
+    "types",
+    "shared",
+    "plant-care"
+  ],
+  "author": "Plant Care Team",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "eslint": "^8.53.0",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "rimraf": "^5.0.5"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "private": true
+}
